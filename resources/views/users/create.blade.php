@@ -15,11 +15,12 @@
             <div class="mb-3">
                 <label for="name" class="form-label">Nombre</label>
                 <input type="text" name="name" class="form-control" value="{{ old('name') }}" id="name" required>
-            </div>
-
             @error('name')
                 <i>{{ $message }} </i>
             @enderror
+            </div>
+
+        
 
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>

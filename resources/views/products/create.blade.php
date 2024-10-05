@@ -9,7 +9,7 @@
         @csrf
         <div class="form-group">
             <label for="name">Nombre</label>
-            <input type="text" name="name" id="name" class="form-control" required>
+            <input type="text" name="name" id="name" class="form-control" value="{{ old('name') }}" required>
         </div>
 
         @error('name')
@@ -18,7 +18,7 @@
         
         <div class="form-group">
             <label for="price">Precio</label>
-            <input type="text" name="price" id="price" class="form-control" required>
+            <input type="text" name="price" id="price" class="form-control" value="{{ old('precio') }}" required>
         </div>
 
         @error('price')
@@ -27,7 +27,7 @@
         
         <div class="form-group">
             <label for="description">Descripción</label>
-            <textarea name="description" id="description" class="form-control" required></textarea>
+            <textarea name="description" id="description" class="form-control" value="{{ old('description') }}" required></textarea>
         </div>
         
         @error('description')

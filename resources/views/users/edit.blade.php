@@ -27,10 +27,20 @@
                 <label for="name" class="form-label">Nombre</label>
                 <input type="text" class="form-control" id="name" name="name" value="{{ $user->name }}" required>
             </div>
+
+            @error('name')
+                <i>{{ $message }} </i>
+            @enderror
+
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
                 <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}" required>
             </div>
+            
+            @error('name')
+                <i>{{ $message }} </i>
+            @enderror
+
             <button type="submit" class="btn btn-primary">Actualizar Usuario</button>
         </form>
     </div>
