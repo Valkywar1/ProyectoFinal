@@ -11,6 +11,7 @@
             <label for="name">Nombre</label>
             <input type="text" name="name" id="name" class="form-control" required>
         </div>
+
         @error('name')
             <i>{{ $message }} </i>
         @enderror
@@ -19,6 +20,7 @@
             <label for="price">Precio</label>
             <input type="text" name="price" id="price" class="form-control" required>
         </div>
+
         @error('price')
             <i>{{ $message }} </i>
         @enderror
@@ -27,6 +29,7 @@
             <label for="description">Descripción</label>
             <textarea name="description" id="description" class="form-control" required></textarea>
         </div>
+        
         @error('description')
             <i>{{ $message }} </i>
         @enderror
