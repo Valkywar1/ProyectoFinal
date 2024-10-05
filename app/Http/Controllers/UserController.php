@@ -29,6 +29,13 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
+        // echo $request;
+        // dd($request):
+        // dd($request->all()):
+        // dd($request->input('variable_a_ver')):
+        // dd($request->variable_a_ver):
+
+        
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
@@ -42,6 +49,12 @@ class UserController extends Controller
         ]);
 
         return redirect()->route('users.index')->with('success', 'Usuario creado correctamente.');
+
+        // recibir info
+        // validar
+        // Insertar a DB
+        // Redirigir
+        
     }
 
     /**

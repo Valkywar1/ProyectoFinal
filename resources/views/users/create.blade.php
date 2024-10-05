@@ -14,16 +14,31 @@
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">Nombre</label>
-                <input type="text" name="name" class="form-control" id="name" required>
+                <input type="text" name="name" class="form-control" value="{{ old('name') }}" id="name" required>
             </div>
+
+            @error('name')
+                <i>{{ $message }} </i>
+            @enderror
+
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" name="email" class="form-control" id="email" required>
+                <input type="email" name="email" class="form-control" value="{{ old('email') }}" id="email" required>
             </div>
+
+            @error('email')
+                <i>{{ $message }} </i>
+            @enderror
+
             <div class="mb-3">
                 <label for="password" class="form-label">Contraseña</label>
-                <input type="password" name="password" class="form-control" id="password" required>
+                <input type="password" name="password" class="form-control" value="{{ old('password') }}" id="password" required>
             </div>
+
+            @error('password')
+                <i>{{ $message }} </i>
+            @enderror
+
             <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
     </div>
