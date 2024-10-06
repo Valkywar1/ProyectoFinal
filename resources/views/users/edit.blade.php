@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container mt-5">
-        <h1>Editar Usuario</h1>
+        <h1>Editar Usuario: {{ $user->name }} </h1>
 
         @if ($errors->any())
             <div class="alert alert-danger">
@@ -23,15 +23,18 @@
         <form action="{{ route('users.update', $user->id) }}" method="POST">
             @csrf
             @method('PUT')
+
             <div class="mb-3">
                 <label for="name" class="form-label">Nombre</label>
-                <input type="text" class="form-control" id="name" name="name" value="{{ $user->name }}" required>
+                <input type="text" class="form-control" id="name" name="name" value="{{ $user->name }}">
             </div>
+
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}" required>
+                <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}">
             </div>
-            <button type="submit" class="btn btn-primary">Actualizar Usuario</button>
+            
+            <button type="submit" class="btn btn-primary">Actualizar</button>
         </form>
     </div>
 </body>

@@ -8,7 +8,7 @@
 </head>
 <body>
     <div class="container mt-5">
-        <h1>Detalles del Usuario</h1>
+        <h1>Detalles</h1>
 
         <div class="mb-3">
             <strong>ID:</strong> {{ $user->id }}
