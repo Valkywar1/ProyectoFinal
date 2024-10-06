@@ -35,7 +35,7 @@ class UserController extends Controller
         // dd($request->input('variable_a_ver')):
         // dd($request->variable_a_ver):
 
-        
+        // validar
         $request->validate([
             'name' => 'required|string|max:255|min4',
             'email' => 'required|string|email|max:255|unique:users',
@@ -48,13 +48,11 @@ class UserController extends Controller
             'password' => bcrypt($request->password),
         ]);
 
+        // Redirigir
         return redirect()->route('users.index')->with('success', 'Usuario creado correctamente.');
 
         // recibir info
-        // validar
         // Insertar a DB
-        // Redirigir
-        
     }
 
     /**

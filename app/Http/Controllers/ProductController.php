@@ -37,14 +37,14 @@ class ProductController extends Controller
         $request->validate([
             'name' => 'required|max:255', // El nombre es obligatorio y debe tener como máximo 255 caracteres
             'price' => 'required|numeric', // El precio es obligatorio y debe ser un número
-            'description' => 'nullable', // La descripción es opcional
+            'description' => 'required', // La descripción debe ser requerida
         ]);
 
         // Crear un nuevo producto usando los datos del formulario
         Product::create($request->all());
 
         // Redirigir a la lista de productos con un mensaje de éxito
-        return redirect()->route('products.index')->with('success', 'Producto creado con éxito.');
+        //return redirect()->route('products.index')->with('success', 'Producto creado con éxito.');
     }
 
     /**
