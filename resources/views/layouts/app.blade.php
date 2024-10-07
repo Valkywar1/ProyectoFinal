@@ -1,45 +1,200 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="csrf-token" content="{{ csrf_token() }}">
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@yield('title')</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
 
-        <title>{{ config('app.name', 'Laravel') }}</title>
+    <!-- Custom CSS -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Poppins&display=swap');
+        
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box
+        }
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+        body {
+            background-color: #eee;
+            height: 100vh;
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to top, #fff 10%, rgba(93, 42, 141, 0.4) 90%) no-repeat
+        }
 
-        <!-- Scripts -->
-        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        .wrapper {
+            max-width: 500px;
+            border-radius: 10px;
+            margin: 50px auto;
+            padding: 30px 40px;
+            box-shadow: 20px 20px 80px rgb(206, 206, 206)
+        }
 
-        <!-- Styles -->
-        @livewireStyles
-    </head>
-    <body class="font-sans antialiased">
-        <x-banner />
+        .h2 {
+            font-family: 'Kaushan Script', cursive;
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #400485;
+            font-style: italic
+        }
 
-        <div class="min-h-screen bg-gray-100">
-            @livewire('navigation-menu')
+        .h4 {
+            font-family: 'Poppins', sans-serif
+        }
 
-            <!-- Page Heading -->
-            @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
+        .input-field {
+            border-radius: 5px;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            border: 1px solid #400485;
+            color: #400485
+        }
 
-            <!-- Page Content -->
-            <main>
-                {{ $slot }}
-            </main>
-        </div>
+        .input-field:hover {
+            color: #7b4ca0;
+            border: 1px solid #7b4ca0
+        }
 
-        @stack('modals')
+        input {
+            border: none;
+            outline: none;
+            box-shadow: none;
+            width: 100%;
+            padding: 0px 2px;
+            font-family: 'Poppins', sans-serif
+        }
 
-        @livewireScripts
-    </body>
+        .fa-eye-slash.btn {
+            border: none;
+            outline: none;
+            box-shadow: none
+        }
+
+        a {
+            text-decoration: none;
+            color: #400485;
+            font-weight: 700
+        }
+
+        a:hover {
+            text-decoration: none;
+            color: #7b4ca0
+        }
+
+        .option {
+            position: relative;
+            padding-left: 30px;
+            cursor: pointer
+        }
+
+        .option label.text-muted {
+            display: block;
+            cursor: pointer
+        }
+
+        .option input {
+            display: none
+        }
+
+        .checkmark {
+            position: absolute;
+            top: 3px;
+            left: 0;
+            height: 20px;
+            width: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 50%;
+            cursor: pointer
+        }
+
+        .option input:checked~.checkmark:after {
+            display: block
+        }
+
+        .option .checkmark:after {
+            content: "";
+            width: 13px;
+            height: 13px;
+            display: block;
+            background: #400485;
+            position: absolute;
+            top: 48%;
+            left: 53%;
+            border-radius: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: 300ms ease-in-out 0s
+        }
+
+        .option input[type="radio"]:checked~.checkmark {
+            background: #fff;
+            transition: 300ms ease-in-out 0s;
+            border: 1px solid #400485
+        }
+
+        .option input[type="radio"]:checked~.checkmark:after {
+            transform: translate(-50%, -50%) scale(1)
+        }
+
+        .btn.btn-block {
+            border-radius: 20px;
+            background-color: #400485;
+            color: #fff
+        }
+
+        .btn.btn-block:hover {
+            background-color: #55268be0
+        }
+
+        @media(max-width: 575px) {
+            .wrapper {
+                margin: 10px
+            }
+        }
+
+        @media(max-width:424px) {
+            .wrapper {
+                padding: 30px 10px;
+                margin: 5px
+            }
+
+            .option {
+                position: relative;
+                padding-left: 22px
+            }
+
+            .option label.text-muted {
+                font-size: 0.95rem
+            }
+
+            .checkmark {
+                position: absolute;
+                top: 2px
+            }
+
+            .option .checkmark:after {
+                top: 50%
+            }
+
+            #forgot {
+                font-size: 0.95rem
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Aquí irá el contenido de cada vista -->
+        @yield('content')
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 </html>
