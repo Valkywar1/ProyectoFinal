@@ -38,8 +38,11 @@
                 <label for="description">Descripción</label>
                 <textarea name="description" id="description" class="form-control">{{ $product->description }}</textarea>
             </div>
+
+            <br>
             
             <button type="submit" class="btn btn-success">Actualizar</button>
+            <a href="{{ route('products.index') }}" class="btn btn-primary">Volver</a>
         </form>
     </div>
 </body>

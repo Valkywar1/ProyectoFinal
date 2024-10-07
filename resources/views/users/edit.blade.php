@@ -34,7 +34,9 @@
                 <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}">
             </div>
             
+            <br>
             <button type="submit" class="btn btn-primary">Actualizar</button>
+            <a href="{{ route('users.index') }}" class="btn btn-primary">Volver</a>
         </form>
     </div>
 </body>

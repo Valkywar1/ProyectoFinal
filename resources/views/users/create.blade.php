@@ -49,6 +49,16 @@
                 <i>{{ $message }} </i>
             @enderror
 
+
+            <div class="mb-3">
+                <label for="password_confirmation" class="form-label">Confirma Contraseña</label>
+                <input type="password" name="password_confirmation" class="form-control" value="{{ old('password_confirmation') }}" id="password_confirmation" >
+            </div>
+
+            @error('password_confirmation')
+                <i>{{ $message }} </i>
+            @enderror
+
             <button type="submit" class="btn btn-primary">Guardar</button>
         </form>
     </div>
