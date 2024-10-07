@@ -12,7 +12,10 @@ class UserController extends Controller
      */
     public function index()
     {
+        // Obtener todos los usuarios de la base de datos
         $users = User::all();
+
+         // Retornar la vista 'users.index' y pasarle la lista de productos
         return view('users.index', compact('users'));
     }
 
@@ -21,6 +24,7 @@ class UserController extends Controller
      */
     public function create()
     {
+        // Retornar la vista 'users.create' que contendrá el formulario de creación
         return view('users.create');
     }
 
@@ -35,9 +39,9 @@ class UserController extends Controller
         // dd($request->input('variable_a_ver')):
         // dd($request->variable_a_ver):
 
-        
+        // validar la entrada del formulario
         $request->validate([
-            'name' => 'required|string|max:255|min4',
+            'name' => 'required|string|max:255|min:3',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
@@ -48,13 +52,11 @@ class UserController extends Controller
             'password' => bcrypt($request->password),
         ]);
 
+        // Redirigir
         return redirect()->route('users.index')->with('success', 'Usuario creado correctamente.');
 
         // recibir info
-        // validar
         // Insertar a DB
-        // Redirigir
-        
     }
 
     /**
@@ -79,9 +81,9 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
-            'password' => 'nullable|string|min:6|confirmed',
+            'name' => 'required|string|max:255|min:3',
+            'email' => 'required|string|email|max:255|unique:users',
+            'password' => 'required|string|min:6|confirmed',
         ]);
 
         $user->name = $request->name;

@@ -10,11 +10,21 @@
     <div class="container mt-5">
         <h1>Agregar Nuevo Usuario</h1>
 
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
         <form action="{{ route('users.store') }}" method="POST">
             @csrf
             <div class="mb-3">
                 <label for="name" class="form-label">Nombre</label>
-                <input type="text" name="name" class="form-control" value="{{ old('name') }}" id="name" required>
+                <input type="text" name="name" class="form-control" value="{{ old('name') }}" id="name">
             </div>
 
             @error('name')
@@ -23,7 +33,7 @@
 
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
-                <input type="email" name="email" class="form-control" value="{{ old('email') }}" id="email" required>
+                <input type="email" name="email" class="form-control" value="{{ old('email') }}" id="email" >
             </div>
 
             @error('email')
@@ -32,10 +42,20 @@
 
             <div class="mb-3">
                 <label for="password" class="form-label">Contraseña</label>
-                <input type="password" name="password" class="form-control" value="{{ old('password') }}" id="password" required>
+                <input type="password" name="password" class="form-control" value="{{ old('password') }}" id="password" >
             </div>
 
             @error('password')
+                <i>{{ $message }} </i>
+            @enderror
+
+
+            <div class="mb-3">
+                <label for="password_confirmation" class="form-label">Confirma Contraseña</label>
+                <input type="password" name="password_confirmation" class="form-control" value="{{ old('password_confirmation') }}" id="password_confirmation" >
+            </div>
+
+            @error('password_confirmation')
                 <i>{{ $message }} </i>
             @enderror
 
