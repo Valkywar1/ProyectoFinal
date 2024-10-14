@@ -29,18 +29,30 @@
                 <input type="text" name="name" id="name" class="form-control" value="{{ $product->name }}">
             </div>
             
-            <div class="form-group">
+            @error('name')
+            <i>{{ $message }} </i>
+        @enderror
+
+        <div class="form-group">
                 <label for="price">Precio</label>
                 <input type="text" name="price" id="price" class="form-control" value="{{ $product->price }}" >
             </div>
-            
+    
+        @error('price')
+            <i>{{ $message }} </i>
+        @enderror
+        
             <div class="form-group">
                 <label for="description">Descripción</label>
                 <textarea name="description" id="description" class="form-control">{{ $product->description }}</textarea>
             </div>
 
             <br>
-            
+    
+        @error('description')
+            <i>{{ $message }} </i>
+        @enderror
+        
             <button type="submit" class="btn btn-success">Actualizar</button>
             <a href="{{ route('products.index') }}" class="btn btn-primary">Volver</a>
         </form>

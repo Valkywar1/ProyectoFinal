@@ -29,14 +29,29 @@
                 <input type="text" class="form-control" id="name" name="name" value="{{ $user->name }}">
             </div>
 
+<<<<<<< HEAD
+            @error('name')
+                <i>{{ $message }} </i>
+            @enderror
+
+=======
+>>>>>>> paul
             <div class="mb-3">
                 <label for="email" class="form-label">Email</label>
                 <input type="email" class="form-control" id="email" name="email" value="{{ $user->email }}">
             </div>
             
+<<<<<<< HEAD
+            @error('name')
+                <i>{{ $message }} </i>
+            @enderror
+
+            <button type="submit" class="btn btn-primary">Actualizar Usuario</button>
+=======
             <br>
             <button type="submit" class="btn btn-primary">Actualizar</button>
             <a href="{{ route('users.index') }}" class="btn btn-primary">Volver</a>
+>>>>>>> paul
         </form>
     </div>
 </body>
