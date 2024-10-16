@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use App\Notifications\RegistroExitoso; // Importa la notificación
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -19,11 +20,17 @@ class RegisterController extends Controller
     {
         $this->validator($request->all())->validate();
 
+        // Crea al usuario
         $user = $this->create($request->all());
 
+        // Inicia sesión automáticamente después del registro
         auth()->login($user);
 
-        return redirect()->route('home'); // Redirige al home u otra ruta después del registro
+        // Enviar la notificación de registro exitoso
+        $user->notify(new RegistroExitoso());
+
+        // Redirige al home u otra ruta después del registro
+        return redirect()->route('home'); 
     }
 
     protected function validator(array $data)
