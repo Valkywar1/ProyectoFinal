@@ -9,9 +9,9 @@ class Product extends Model
 {
     use HasFactory;
 
-    // Especificar la tabla 'productos' en lugar de 'products'
-    protected $table = 'productos';
+    // Elimina la línea que especifica la tabla, o cambia 'productos' a 'products'
+    protected $table = 'products'; // Puedes también eliminar esta línea si quieres usar el predeterminado
 
     // Añadir los campos que quieres permitir llenar
-    protected $fillable = ['name', 'price', 'description'];
+    protected $fillable = ['name', 'price', 'description', 'user_id'];
 }
