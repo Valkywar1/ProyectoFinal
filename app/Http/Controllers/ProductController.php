@@ -12,9 +12,11 @@ class ProductController extends Controller
      */
     public function index()
     {
-        $products = Product::all();
+        // Eager Loading para cargar el usuario y las listas de deseos relacionadas con el producto
+        $products = Product::with(['user', 'wishlists'])->get();
         return view('products.index', compact('products'));
     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -49,9 +51,11 @@ class ProductController extends Controller
      */
     public function show(string $id)
     {
-        $product = Product::findOrFail($id);
+        // Eager Loading para cargar el usuario y las listas de deseos relacionadas con el producto
+        $product = Product::with(['user', 'wishlists'])->findOrFail($id);
         return view('products.show', compact('product'));
     }
+    
 
     /**
      * Show the form for editing the specified resource.

@@ -12,9 +12,11 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+        // Eager Loading para cargar productos, wishlists y carts relacionados
+        $users = User::with(['products', 'wishlists', 'carts'])->get();
         return view('users.index', compact('users'));
     }
+    
 
     /**
      * Show the form for creating a new resource.
