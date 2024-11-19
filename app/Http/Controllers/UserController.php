@@ -12,12 +12,18 @@ class UserController extends Controller
      */
     public function index()
     {
+<<<<<<< HEAD
         // Obtener todos los usuarios de la base de datos
         $users = User::all();
 
          // Retornar la vista 'users.index' y pasarle la lista de productos
+=======
+        // Eager Loading para cargar productos, wishlists y carts relacionados
+        $users = User::with(['products', 'wishlists', 'carts'])->get();
+>>>>>>> fernando
         return view('users.index', compact('users'));
     }
+    
 
     /**
      * Show the form for creating a new resource.
@@ -44,6 +50,11 @@ class UserController extends Controller
             'name' => 'required|string|max:255|min:3',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+        ], [
+            'name.required' => 'El nombre es obligatorio.',
+            'email.required' => 'El correo electrónico es obligatorio.',
+            'password.required' => 'La contraseña es obligatoria.',
+            'password.confirmed' => 'La confirmación de la contraseña no coincide.',
         ]);
 
         User::create([
@@ -81,9 +92,19 @@ class UserController extends Controller
     public function update(Request $request, User $user)
     {
         $request->validate([
+<<<<<<< HEAD
             'name' => 'required|string|max:255|min:3',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
+=======
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:users,email,' . $user->id,
+            'password' => 'nullable|string|min:6|confirmed',
+        ], [
+            'name.required' => 'El nombre es obligatorio.',
+            'email.required' => 'El correo electrónico es obligatorio.',
+            'password.confirmed' => 'La confirmación de la contraseña no coincide.',
+>>>>>>> fernando
         ]);
 
         $user->name = $request->name;
