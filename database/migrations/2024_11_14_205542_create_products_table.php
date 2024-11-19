@@ -15,6 +15,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade'); // Usuario que creó el producto
             $table->timestamps();
+            $table->softDeletes(); // Añadir esta línea para habilitar Soft Deletes
         });
     }
 

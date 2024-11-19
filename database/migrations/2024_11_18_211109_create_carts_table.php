@@ -14,6 +14,7 @@ return new class extends Migration
             $table->foreignId('product_id')->constrained('products')->onDelete('cascade'); // Producto añadido al carrito
             $table->integer('quantity')->default(1);
             $table->timestamps();
+            $table->softDeletes(); // Añadir Soft Deletes
         });
     }
 

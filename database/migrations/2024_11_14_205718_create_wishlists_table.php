@@ -13,6 +13,7 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained('users')->onDelete('cascade'); // Usuario dueño de la lista de deseados
             $table->foreignId('product_id')->constrained('products')->onDelete('cascade'); // Producto añadido a la lista de deseados
             $table->timestamps();
+            $table->softDeletes(); // Añadir esta línea para habilitar Soft Deletes
         });
     }
 
