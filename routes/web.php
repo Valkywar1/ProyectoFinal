@@ -4,8 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Auth\LoginController;
-
-
+use App\Http\Controllers\SitioController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -25,3 +24,5 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 });
+
+Route::get('inicio', [SitioController::class, 'landing']);
