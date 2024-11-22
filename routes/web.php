@@ -20,9 +20,17 @@ Route::middleware([
     config('jetstream.auth_session'),
     'verified',
 ])->group(function () {
+    // Ruta al dashboard
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    // Pagina de shop
+
+    // Pagina de wishlist
+
+    //
+
 });
 
 Route::get('inicio', [SitioController::class, 'landing']);

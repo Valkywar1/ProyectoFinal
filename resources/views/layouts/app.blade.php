@@ -36,7 +36,7 @@
     <!-- header -->
     <header class="py-4 shadow-sm bg-white">
         <div class="container flex items-center justify-between">
-            <a href="resources/dashboard.blade.php">
+            <a href="{{ route(dashboard}}">
                 <img src="{{ asset('backend/assets/images/logo.svg') }}" alt="Logo" class="w-32">
             </a>
 
