@@ -2,24 +2,22 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Seeder;
 use App\Models\User;
-use App\Models\Product;
+// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    public function run()
+    /**
+     * Seed the application's database.
+     */
+    public function run(): void
     {
-        // Genera un usuario específico con equipo personal
+        // User::factory(10)->withPersonalTeam()->create();
+
         User::factory()->withPersonalTeam()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
-
-        // Genera 10 usuarios adicionales sin equipos personales
-        User::factory(10)->create();
-
-        // Genera 50 productos y asigna cada uno a un usuario aleatorio
-        Product::factory(50)->create();
     }
 }
