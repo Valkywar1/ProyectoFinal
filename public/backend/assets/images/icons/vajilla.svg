@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="background: #FFF;">
+  <circle cx="256" cy="256" r="180" fill="#FF0000"/>
+  <circle cx="256" cy="256" r="140" fill="#FFF" stroke="#FF0000" stroke-width="10"/>
+  <rect x="230" y="100" width="50" height="300" fill="#FF0000"/>
+  <text x="50%" y="90%" text-anchor="middle" fill="#FF0000" font-family="Arial" font-size="40" dy=".3em">Vajilla</text>
+</svg>

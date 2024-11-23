@@ -105,4 +105,14 @@ class ProductController extends Controller
         // Redirigir a la lista de productos con un mensaje de éxito
         return redirect()->route('products.index')->with('success', 'Producto eliminado con éxito.');
     }
+
+    // Metodo para la vista shop
+    public function shop()
+    {
+        // Obtener los productos de la base de datos
+        $products = Product::all();
+
+        // Retornar la vista 'shop' con los productos
+        return view('shop', compact('products'));
+    }
 }

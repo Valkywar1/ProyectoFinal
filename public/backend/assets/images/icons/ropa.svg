@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" style="background: #FFF;">
+  <rect x="180" y="200" width="150" height="250" fill="#FF0000" />
+  <polygon points="180,200 250,100 320,200" fill="#FF0000"/>
+  <line x1="180" y1="300" x2="330" y2="300" stroke="#FFF" stroke-width="5"/>
+  <text x="50%" y="90%" text-anchor="middle" fill="#FF0000" font-family="Arial" font-size="40" dy=".3em">Ropa</text>
+</svg>
