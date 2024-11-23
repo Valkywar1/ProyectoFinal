@@ -6,7 +6,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController; // Asegúrate de tener este controlador importado
 use App\Http\Controllers\MailController;
-use App\Http\Controllers\HomeController;
+// use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SitioController;
 use App\Http\Controllers\WishlistController;// Ruta de bienvenida pública
 Route::get('/', function () {
@@ -27,7 +27,8 @@ Route::middleware(['auth'])->group(function () {
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('/home', [HomeController::class, 'index'])->name('home');
+    // Route::get('/home', [HomeController::class, 'index'])->name('home');
+
     Route::resource('products', ProductController::class);
 
     // Productos index
@@ -40,7 +41,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('product', [ProductController::class, 'product'])->name('product');
 });
 
-Route::get('inicio', [SitioController::class, 'landing']);
+// Ruta para enviar un correo electrónico de bienvenida
+Route::post('/send-welcome-email', [MailController::class, 'sendWelcomeEmail']);
+
+// Route::get('inicio', [SitioController::class, 'landing'])->name('');
 
 // Vista para Contactanos
 Route::get('/contactanos', function() {
@@ -63,5 +67,3 @@ Route::middleware(['auth', 'isAdmin'])->group(function () {
     Route::resource('users', UserController::class);
 });
 
-// Ruta para enviar un correo electrónico de bienvenida
-Route::post('/send-welcome-email', [MailController::class, 'sendWelcomeEmail']);

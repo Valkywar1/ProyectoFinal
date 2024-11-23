@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Mail\WelcomeMail; // Asegúrate de importar la clase WelcomeMail
 use Illuminate\Http\Request;
+use App\Mail\WelcomeMail; // Asegúrate de importar la clase WelcomeMail
 use Illuminate\Support\Facades\Mail;
 
 class MailController extends Controller
