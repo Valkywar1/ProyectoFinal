@@ -7,8 +7,8 @@ use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController; // Asegúrate de tener este controlador importado
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\HomeController;
-
-// Ruta de bienvenida pública
+use App\Http\Controllers\SitioController;
+use App\Http\Controllers\WishlistController;// Ruta de bienvenida pública
 Route::get('/', function () {
     return view('welcome');
 });
@@ -22,13 +22,41 @@ Route::post('/register', [RegisterController::class, 'register']);
 
 // Proteger las rutas con el middleware 'auth'
 Route::middleware(['auth'])->group(function () {
+    // Ruta al dashboard
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
 
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::resource('products', ProductController::class);
+
+    // Productos index
+    Route::get('/shop', [ProductController::class, 'shop'])->name('shop');
+
+    // Pagina de wishlist
+    Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist');
+    
+    // Pagina de Producto
+    Route::get('product', [ProductController::class, 'product'])->name('product');
 });
+
+Route::get('inicio', [SitioController::class, 'landing']);
+
+// Vista para Contactanos
+Route::get('/contactanos', function() {
+    return view('contactanos');
+})->name('contactanos');
+
+// Vista para Acerca de nosotros
+Route::get('/acerca', function() {
+    return view('acerca');
+})->name('acerca');
+
+// Ruta para manejar el formulario de contacto
+Route::post('/contactanos', function (\Illuminate\Http\Request $request) {
+    // Aquí puedes manejar el formulario, por ejemplo, enviar un correo o guardar en la base de datos
+    return back()->with('success', '¡Mensaje enviado correctamente!');
+})->name('contact.submit');
 
 // Proteger las rutas de administración con middleware 'auth' e 'isAdmin'
 Route::middleware(['auth', 'isAdmin'])->group(function () {
