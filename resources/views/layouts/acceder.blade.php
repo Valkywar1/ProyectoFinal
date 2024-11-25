@@ -102,27 +102,7 @@
                     <a href="{{ route('dashboard') }}" class="text-gray-200 hover:text-white transition">Inicio</a>
                     <a href="{{ route('shop') }}" class="text-gray-200 hover:text-white transition">Comprar</a>
                 </div>
-                @if (Route::has('login'))
-                    @auth
-                        <a 
-                            href="{{ url('/dashboard') }}" 
-                            class="text-gray-200 hover:text-white transition">Bienvenido
-                        </a>
-                    @else
-                        <div class="relative group">
-                            <a 
-                                href="{{ route('login') }}"
-                                class="text-gray-200 hover:text-white transition">Iniciar Sesión | 
-                            </a>
-                            @if (Route::has('register'))
-                                <a 
-                                    href="{{ route('register') }}"
-                                    class="text-gray-200 hover:text-white transition">Registrarse
-                                </a>
-                            @endif
-                        </div>
-                    @endauth
-                @endif
+                    <a href="{{ route('login') }}" class="text-gray-200 hover:text-white transition">Iniciar Sesión</a>
                 </div>
         </div>
     </nav>
