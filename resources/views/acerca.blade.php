@@ -1,31 +1,17 @@
-@extends('layouts.app')
+@extends('layouts.appwel')
 
 @section('content')
-   <!-- Página de Acerca de Nosotros -->
-    <div class="col-span-3">
-        <div class="flex items-center mb-4">
-            <h2 class="text-2xl font-semibold text-gray-800">Acerca de Nosotros</h2>
-        </div>
-
-        <div class="bg-white shadow rounded overflow-hidden p-6">
-            <h3 class="text-xl font-medium text-gray-700 mb-3">Nuestra Historia</h3>
-            <p class="text-gray-600 leading-relaxed">
-                Somos una empresa comprometida con ofrecer productos de alta calidad y un servicio excepcional. Desde
-                nuestros inicios, nuestra misión ha sido proporcionar valor a nuestros clientes mientras mantenemos
-                nuestros principios éticos y sociales.
+    <!-- Acerca de Nosotros -->
+    <div class="contain py-16">
+        <div class="max-w-4xl mx-auto shadow px-6 py-7 rounded overflow-hidden">
+            <h2 class="text-3xl uppercase font-medium mb-4 text-center">Acerca de ArteSano</h2>
+            <p class="text-gray-600 mb-6 text-sm text-center">
+                ArteSano es una plataforma dedicada a ofrecer las mejores artesanías hechas a mano por artesanos locales. Nuestro objetivo es preservar las tradiciones artesanales mientras brindamos productos únicos y de alta calidad a nuestros clientes.
             </p>
-
-            <h3 class="text-xl font-medium text-gray-700 mt-6 mb-3">Misión</h3>
-            <p class="text-gray-600 leading-relaxed">
-                Transformar la manera en que las personas compran, ofreciendo experiencias memorables y productos únicos.
-            </p>
-
-            <h3 class="text-xl font-medium text-gray-700 mt-6 mb-3">Visión</h3>
-            <p class="text-gray-600 leading-relaxed">
-                Ser reconocidos como líderes en nuestro sector, destacando por la innovación, el compromiso y la
-                satisfacción del cliente.
+            <p class="text-gray-600 text-sm">
+                En ArteSano, nos comprometemos a apoyar a los artesanos y a ofrecer productos que no solo embellezcan los hogares, sino que también cuenten historias y representen las raíces culturales de diferentes regiones.
             </p>
         </div>
     </div>
-
+    <!-- ./Acerca de Nosotros -->
 @endsection

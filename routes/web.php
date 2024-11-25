@@ -9,9 +9,10 @@ use App\Http\Controllers\MailController;
 // use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SitioController;
 use App\Http\Controllers\WishlistController;// Ruta de bienvenida pública
-Route::get('/', function () {
+
+Route::get('/welcome', function () {
     return view('welcome');
-});
+})->name('welcome');
 
 // // Rutas de autenticación (login, register, logout)
 // Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
@@ -29,17 +30,29 @@ Route::middleware(['auth'])->group(function () {
 
     // Route::get('/home', [HomeController::class, 'index'])->name('home');
 
-    Route::resource('products', ProductController::class);
+    // Route::resource('products', ProductController::class);
+
+    // Pagina de Producto
+    Route::get('product', [ProductController::class, 'product'])->name('product');
 
     // Productos index
-    Route::get('/shop', [ProductController::class, 'shop'])->name('shop');
+    // Route::get('/shop', [ProductController::class, 'shop'])->name('shop');
 
     // Pagina de wishlist
     Route::get('/wishlist', [WishlistController::class, 'index'])->name('wishlist');
     
-    // Pagina de Producto
-    Route::get('product', [ProductController::class, 'product'])->name('product');
 });
+
+// Pagina de wishlist
+// Route::get('/wishlist', [WishlistController::class, 'wishlists'])->name('wishlist');
+    
+// Pagina de Producto
+Route::get('product', [ProductController::class, 'product'])->name('product');
+
+// Productos index
+Route::get('/shop', [ProductController::class, 'shop'])->name('shop');
+
+Route::get('/products/{id}', [ProductController::class, 'shop'])->name('shop');
 
 // Ruta para enviar un correo electrónico de bienvenida
 Route::post('/send-welcome-email', [MailController::class, 'sendWelcomeEmail']);

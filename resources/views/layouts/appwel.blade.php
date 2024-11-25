@@ -36,7 +36,7 @@
     <!-- header -->
     <header class="py-4 shadow-sm bg-white">
         <div class="container flex items-center justify-between">
-            <a href="{{ route('dashboard') }}">
+            <a href="{{ route('welcome') }}">
                 <img src="{{ asset('backend/assets/images/logo.svg') }}" alt="Logo" class="w-32">
             </a>
 
@@ -99,7 +99,7 @@
 
             <div class="flex items-center justify-between flex-grow md:pl-12 py-5">
                 <div class="flex items-center space-x-6 capitalize">
-                    <a href="{{ route('dashboard') }}" class="text-gray-200 hover:text-white transition">Inicio</a>
+                    <a href="{{ route('welcome') }}" class="text-gray-200 hover:text-white transition">Inicio</a>
                     <a href="{{ route('shop') }}" class="text-gray-200 hover:text-white transition">Comprar</a>
                 </div>
                 @if (Route::has('login'))

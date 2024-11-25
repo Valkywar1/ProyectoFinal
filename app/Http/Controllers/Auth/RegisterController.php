@@ -30,7 +30,7 @@ class RegisterController extends Controller
         $user->notify(new RegistroExitoso());
 
         // Redirige al home u otra ruta después del registro
-        return redirect()->route('home'); 
+        return redirect()->route('dashboard'); 
     }
 
     protected function validator(array $data)

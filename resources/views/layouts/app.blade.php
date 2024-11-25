@@ -125,7 +125,14 @@
                     <a href="{{ route('dashboard') }}" class="text-gray-200 hover:text-white transition">Inicio</a>
                     <a href="{{ route('shop') }}" class="text-gray-200 hover:text-white transition">Comprar</a>
                 </div>
-                <a href="pages/login.html" class="text-gray-200 hover:text-white transition">Iniciar Sesión</a>
+                <form action="{{ route('logout') }}" method="POST" class="inline">
+                    @csrf
+                    <a href="javascript:void(0);" 
+                       onclick="this.closest('form').submit();" 
+                       class="text-gray-200 hover:text-white transition">
+                       Salir
+                    </a>
+                </form>
             </div>
         </div>
     </nav>
