@@ -47,12 +47,12 @@ Route::middleware(['auth'])->group(function () {
 // Route::get('/wishlist', [WishlistController::class, 'wishlists'])->name('wishlist');
     
 // Pagina de Producto
-Route::get('product', [ProductController::class, 'product'])->name('product');
+// Route::get('product', [ProductController::class, 'product'])->name('product');
 
 // Productos index
 Route::get('/shop', [ProductController::class, 'shop'])->name('shop');
 
-Route::get('/products/{id}', [ProductController::class, 'shop'])->name('shop');
+// Route::get('/products/{id}', [ProductController::class, 'shop'])->name('shop');
 
 // Ruta para enviar un correo electrónico de bienvenida
 Route::post('/send-welcome-email', [MailController::class, 'sendWelcomeEmail']);
